@@ -49,20 +49,20 @@ function onBtnCreatePromiseEClick(event, position, delay) {
         const shouldResolve = Math.random() > 0.3;
         setTimeout(() => {
           if (shouldResolve) {
-            resolve(`✅ Fulfilled promise ${position} in ${delay}ms`);
+            resolve({ position, delay });
           } else {
-            reject(`❌ Rejected promise ${position} in ${delay}ms`);
+            reject({ position, delay });
           }
         }, delay);
       });
       return promise;
     }
     createPromise(position, delay)
-      .then(mes => {
-        Notify.success(mes);
+      .then(({ position, delay }) => {
+        Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
       })
-      .catch(err => {
-        Notify.failure(err);
+      .catch(({ position, delay }) => {
+        Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
       });
   }
   event.currentTarget.reset();
