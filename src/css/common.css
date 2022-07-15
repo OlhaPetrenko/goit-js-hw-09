@@ -16,3 +16,47 @@ img {
   display: block;
   max-width: 100%;
 }
+
+.btn-task1 {
+  padding: 20px;
+  margin: 30px;
+  width: 100px;
+
+  font-size: 20px;
+  letter-spacing: 2px;
+  background-color: rgb(212, 164, 203);
+  border-radius: 5px;
+}
+
+/* task2 */
+.timer {
+  display: flex;
+}
+.field {
+  margin: 30px;
+  text-align: center;
+}
+
+.value {
+  display: block;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.label {
+  display: block;
+  font-weight: bold;
+  color: red;
+}
+.btn-task2 {
+  padding: 10px;
+  margin: 10px;
+  width: 100px;
+
+  font-size: 16px;
+  letter-spacing: 1.2px;
+  background-color: rgb(131, 194, 202);
+  border-radius: 5px;
+}
+
+/* task3 */
