@@ -44,19 +44,7 @@ function onBtnCreatePromiseEClick(event, position, delay) {
   for (let i = 1; i <= amountEl.value; i += 1) {
     position = i;
     delay += Number(nextDelayEl.value);
-    function createPromise(position, delay) {
-      const promise = new Promise((resolve, reject) => {
-        const shouldResolve = Math.random() > 0.3;
-        setTimeout(() => {
-          if (shouldResolve) {
-            resolve({ position, delay });
-          } else {
-            reject({ position, delay });
-          }
-        }, delay);
-      });
-      return promise;
-    }
+
     createPromise(position, delay)
       .then(({ position, delay }) => {
         Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
@@ -66,4 +54,18 @@ function onBtnCreatePromiseEClick(event, position, delay) {
       });
   }
   event.currentTarget.reset();
+}
+
+function createPromise(position, delay) {
+  const promise = new Promise((resolve, reject) => {
+    const shouldResolve = Math.random() > 0.3;
+    setTimeout(() => {
+      if (shouldResolve) {
+        resolve({ position, delay });
+      } else {
+        reject({ position, delay });
+      }
+    }, delay);
+  });
+  return promise;
 }
